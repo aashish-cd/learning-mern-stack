@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+
+const cors = require('cors');
+
 require('dotenv').config();
 //Routes
 const items = require('./routes/api/items');
@@ -10,6 +13,9 @@ const port = process.env.PORT || 5000;
 
 //bodyparse middleware
 app.use(bodyParser.json());
+
+//cors
+app.use(cors());
 
 //useRoutes
 app.use('/api/items', items);
